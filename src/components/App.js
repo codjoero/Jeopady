@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setCategories, pickCategory } from '../actions';
 
-class App extends Component {
+export class App extends Component {
   componentDidMount() {
     const { SetCategories, categories } = this.props;
     if (categories.length === 0) {
@@ -14,7 +14,6 @@ class App extends Component {
   }
 
   render() {
-    console.log('this.props', this.props);
     const { categories, PickCategory } = this.props;
     return (
       <div>

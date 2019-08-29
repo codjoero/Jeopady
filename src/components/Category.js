@@ -20,9 +20,7 @@ export class Category extends Component {
     const { clues } = this.state;
     return (
       <div>
-        <Link className="link-home" to='/'>
-          <h4>Home</h4>
-        </Link>
+        
         <h2>{category.title}</h2>
         {
           clues.map(clue => (
@@ -37,8 +35,20 @@ export class Category extends Component {
   }
 }
 
+const LinkedCategory = (props) => {
+  const { category } =  props;
+  return (
+    <div>
+      <Link className="link-home" to='/'>
+        <h4>Home</h4>
+      </Link>
+      <Category category={category} />
+    </div>
+  );
+};
+
 const mapStateToProps = (state) => ({
   category: state.category
 })
 
-export default connect(mapStateToProps, null)(Category);
+export default connect(mapStateToProps, null)(LinkedCategory);
